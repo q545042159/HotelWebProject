@@ -1,0 +1,62 @@
+﻿@model  Models.Recruitment
+@{
+    ViewBag.Title = "发布新招聘";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+
+<style type="text/css">
+    .txt {
+        width: 80px;
+    }
+</style>
+@using (Html.BeginForm("PublishRecruiment", "Company", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            职位名称：@Html.TextBoxFor(m => m.PostName, new { @class = "txt" })
+            职位类型：
+            <select id="PostType" name="PostType">
+                <option>全职</option>
+                <option>兼职</option>
+            </select>
+            工作经验：
+            <select id="Experience" name="Experience">
+                <option>1年</option>
+                <option>2年</option>
+                <option>3年</option>
+                <option>4年</option>
+                <option>5年</option>
+            </select>
+            学历要求：
+            <select id="EduBackground" name="EduBackground">
+                <option>本科</option>
+                <option>硕士</option>
+                <option>专科</option>
+                <option>高中</option>
+            </select>
+            招聘人数：@Html.TextBoxFor(m => m.RequireCount, new { @class = "txt" })
+            工作地点：@Html.TextBoxFor(m => m.PostPlace, new { @class = "txt" })
+        </div>
+        <div class="txtItemdiv">
+            职位描述：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextAreaFor(m => m.PostRequire, new { cols = "100", rows = "10" })
+        </div>
+        <div class="txtItemdiv">
+            具体要求：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextAreaFor(m => m.PostDesc, new { cols = "100", rows = "10" })
+        </div>
+        <div class="txtItemdiv">
+            联系人：@Html.TextBoxFor(m => m.Manager)
+            电话：@Html.TextBoxFor(m => m.PhoneNumber)
+            电子邮件：@Html.TextBoxFor(m => m.Email)
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnModify" type="submit">立即发布</button>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理员登录</title>
+    <link href="~/Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+  
+    @using (Html.BeginForm("AdminLogin", "SysAdmin", FormMethod.Post, new { @class = "adminlogin__form" }))
+    {
+        <div id="container">
+            <div id="top">
+            </div>
+            <div id="content">
+                <div id="loginimg">
+                    <img src="~/Areas/WebHotelManage/Css/Images/loginimg.jpg" />
+                </div>
+                <div id="logindiv">
+                    <div id="ltitle">
+                        管理员登录
+                    </div>
+                    <div class="litem">
+                        登录账号：                    
+                        @Html.TextBox("LoginId", "", new { @class = "txt" })
+                        @Html.ValidationMessage("LoginId")
+                    </div>
+                    <div class="litem">
+                        登录密码：
+                        @Html.Password("LoginPwd", "", new { @class = "txt" })
+                        @Html.ValidationMessage("LoginPwd")
+                    </div>
+                    <div class="litem">
+                        <button class="btncss" id="btnlogin" type="submit">马上登录</button>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="bq">
+                    版权所有 Copyright(C)2010-2020 好运来酒店
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

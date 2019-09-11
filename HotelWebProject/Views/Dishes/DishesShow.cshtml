@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "菜品展示";
+    Layout = "~/Views/Shared/HotelMain.cshtml";
+}
+<link href="~/Styles/Dishes.css" rel="stylesheet" type="text/css" />
+@section lefttitle{
+    <div class="lefttitle">
+        菜品分类
+    </div>
+}
+@section leftcontent1{
+    <div class="content1">
+        <div class="conitem">
+            <a href="javascript:void(0)">招牌菜品</a>
+        </div>
+        <div class="conitem">
+            <a href="javascript:void(0)">特色菜品</a>
+        </div>
+        <div class="conitem">
+            <a href="javascript:void(0)">最新菜品</a>
+        </div>
+    </div>
+}
+@section    lefttitle2{
+    <div class="lefttitle">
+        菜品搜索
+    </div>
+}
+@section leftcontent2{
+    <div class="content1">
+        <form action="#" method="post" name="myform">
+            <table style="border-collapse:collapse; border:0px; padding:35px; width:200px; position:relative;left:39px;top:30px; float:left;">
+                <tr>
+                    <td>
+                        <select style="width:155px;">
+                            <option value="value"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="txtSearch" style="width:150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/Images/search5.gif" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+}
+@section righttitle{
+    您现在位置：中式餐馆酒店>美食展示
+}
+<div id="dishitem">
+    @{
+        foreach (Models.Dishes item in ViewBag.dishes)
+        {
+            <div class="ditem">
+                <div class="dimgdiv">
+                    <img src="/Images/dishes/@item.DishesImg" />
+                </div>
+                <div class="dishname">
+                    @item.DishesName&nbsp;￥@item.UnitPrice
+                </div>
+            </div>
+        }
+    }
+</div>

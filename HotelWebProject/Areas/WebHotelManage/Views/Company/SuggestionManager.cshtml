@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "投诉建议处理";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+@model List<Models.Suggestion>
+
+<div class="itemdiv">
+    <div class="book-title">
+        投诉时间
+    </div>
+    <div class="book-title">
+        客户姓名
+    </div>
+    <div class="book-title">
+        联系电话
+    </div>
+    <div class="book-title">
+        电子邮件
+    </div>
+    <div class="book-title" style="width: 324px;">
+        消费情况
+    </div>
+    <div class="book-title" style="width: 100px;">
+        操作
+    </div>  
+    @if (Model.Count > 0)
+    {
+        foreach (Models.Suggestion item in Model)
+        {
+            <div class="book-title">
+                @item.SuggestionTime
+            </div>
+            <div class="book-title">
+                @item.CustomerName
+            </div>
+            <div class="book-title">
+                @item.PhoneNumber
+            </div>
+            <div class="book-title">
+                @item.Email
+            </div>
+            <div class="book-title" style="width: 324px;">
+                @item.ConsumeDesc
+            </div>
+            <div class="book-title" style="width: 100px;">
+                <a href='HandleSuggestion?suggestionId=@item.SuggestionId'>受理投诉</a>
+            </div>
+            <div class="bookdetail">
+                <div class="book-comment">
+                    @item.SuggestionDesc
+                </div>
+            </div>
+        }
+    }
+</div>

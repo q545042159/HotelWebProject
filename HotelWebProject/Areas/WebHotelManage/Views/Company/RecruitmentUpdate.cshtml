@@ -1,0 +1,80 @@
+﻿@model Models.Recruitment
+
+@{
+    ViewBag.Title = "修改招聘信息";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+
+<style type="text/css">
+    .txt {
+        width: 80px;
+    }
+</style>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    //因为表单中的下拉列表是静态的，所以设置默认值的时候需要通过js完成，下面的函数就是这个作用
+    $(function () {
+        $("#PostType").val($("#PostT").val());//将隐藏域中的值，显示到下拉列表中 ,注意 #PostT中大小写
+        $("#Experience").val($("#Exp").val());
+        $("#EduBackground").val($("#Edu").val());
+    });
+</script>
+@using (Html.BeginForm("ModifyRecruiment", "Company", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            @Html.Hidden("PostId", @Model.PostId)
+            @Html.Hidden("PostT", @Model.PostType, new { id = "PostT" })
+            @Html.Hidden("Exp", @Model.Experience, new { id = "Exp" })
+            @Html.Hidden("Edu", @Model.EduBackground, new { id = "Edu" })
+            职位名称：@Html.TextBox("PostName", @Model.PostName, new { @class = "txt" })           
+            职位类型：
+            <select id="PostType" name="PostType">
+                <option>全职</option>
+                <option>兼职</option>
+            </select>
+            工作经验：
+            <select id="Experience" name="Experience">
+                <option>1年</option>
+                <option>2年</option>
+                <option>3年</option>
+                <option>4年</option>
+                <option>5年</option>
+            </select>
+            学历要求：
+            <select id="EduBackground" name="EduBackground">
+                <option>本科</option>
+                <option>硕士</option>
+                <option>专科</option>
+                <option>高中</option>
+            </select>
+            招聘人数：
+            @Html.TextBox("RequireCount", @Model.RequireCount, new { @class = "txt" })
+            工作地点：
+            @Html.TextBox("PostPlace", @Model.PostPlace, new { @class = "txt" })
+        </div>
+        <div class="txtItemdiv">
+            职位描述：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextArea("PostRequire", @Model.PostRequire, new { cols = "100", rows = "10" })
+        </div>
+        <div class="txtItemdiv">
+            具体要求：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextArea("PostDesc", @Model.PostDesc, new { cols = "100", rows = "10" })
+        </div>
+        <div class="txtItemdiv">
+            联系人：
+            @Html.TextBox("Manager", @Model.Manager)
+            电话：@Html.TextBox("PhoneNumber", @Model.PhoneNumber)
+            电子邮件：@Html.TextBox("Email", @Model.Email)
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnModify" type="submit">立即修改</button>
+        </div>
+    </div>
+}
+
+

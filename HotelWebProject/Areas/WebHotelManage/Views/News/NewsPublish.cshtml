@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "新闻发布";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+<script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("PublishNews", "News", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        <div class="txtItemdiv">
+            新闻标题：@Html.TextBox("NewsTitle", "", new { @class = "txt" })
+            &nbsp;&nbsp;
+            新闻分类：
+            @*<select id="CategoryId" name="CategoryId">
+                    <option selected="selected" value="1">公司新闻</option>
+                    <option value="2">社会新闻</option>
+                </select>*@
+            @Html.DropDownList("CategoryId", (SelectList)ViewBag.dList)
+        </div>
+        <div class="txtItemdiv">
+            新闻内容：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextArea("NewsContents")
+            <script type="text/javascript">
+                CKEDITOR.replace("NewsContents")
+            </script>
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnPublish" type="submit">立即发布</button>
+        </div>
+    </div>
+}

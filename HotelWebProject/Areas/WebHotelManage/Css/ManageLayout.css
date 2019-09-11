@@ -1,0 +1,157 @@
+﻿body
+{
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    background-color: #F1F1F1;
+}
+#container
+{
+    width: 1000px;
+    margin: 0px auto 0px auto;
+    text-align: left;
+}
+#top {
+    width: 1000px;
+    height: 94px;
+    float: left;
+    background-image: url(Images/topbg_ht.png);
+}
+   
+#nav
+{
+    width: 1000px;
+    height: 67px;
+    float: left;
+    background-image: url(Images/navbg_ht.jpg);
+}
+#navlink
+{
+    width: 850px;
+    float: left;
+    margin: 22px 0px 0px 67px;
+    display: inline;
+}
+#navlink ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+#navlink li
+{
+    text-align: center;
+    width: 85px;
+    float: left;
+}
+#navlink a
+{
+    display: block;
+    padding: 0px 6px 0px 6px;
+    margin: 7px 0px 9px 0px;
+    color: #FFFFFF;
+    font-size: 13px;
+    text-decoration: none;
+    border-right: 1px solid #CDDFF1;
+}
+#navlink .navLast
+{
+    border-right: 0px;
+    padding-right: 0px;
+}
+
+#navlink a:hover
+{
+    color: #E0EB1C;
+}
+
+#content
+{
+    width: 1000px;
+    background-color: #FFB70B;;
+    float: left;
+}
+#footer
+{
+    width: 1000px;
+    height: 100px;
+    float: left;
+    background-color: #747B38;
+    text-align:center;
+}
+#bq
+{
+    width: 1000px;
+    float: left;
+    margin: 25px auto 0px auto;
+    display: inline;
+    color: #FFFFFF;
+}
+/*首页欢迎词*/
+#welcomediv
+{
+    width: 1000px;
+    float: left;
+    height: 200px;
+    font-size: 38px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.txtContentdiv
+{
+    width: 968px;
+    float: left;
+    padding: 10px 10px 10px 20px;
+}
+.txtItemdiv
+{
+    width: 978px;
+    float: left;
+    padding: 5px 0px 5px 0px;
+}
+.txtItemdiv .txtTitle
+{
+    width: 500px;
+    border: 1px solid #CCCCCC;
+}
+.btncss
+{
+    border: 1px solid #676D2D;
+    border-radius: 5px;
+    background-color: #676D2D;
+    width: 80px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding:5px;
+}
+a{  color: #FFFFFF;  text-decoration: none;  } 
+.txtInput{width:200px;border:1px solid #747B38;border-radius:3px;height:20px; }
+.itemdiv{width:1000px; float:left;height:auto; overflow:hidden; margin:20px 0px 20px 12px;}
+.bitem-title{width:140px;float:left;padding:6px 0px 6px 0px ;border:1px solid #FFFFFF; background-color:#EAE8E4; text-align:center;}
+.bitem{width:140px;float:left;padding:5px 0px 5px 0px ;border:1px solid #FFFFFF; background-color:#F1F1F1; text-align:center;}
+.bitem a{color:#000000;}
+/*预定管理*/
+.book-title{width:135px;float:left;padding:5px 0px 5px 0px ;border:1px solid #FFFFFF; background-color:#F1F1F1; text-align:center;}
+.book-title a{color:#000000;}
+/*新闻管理*/
+.newsitem-title-1{width:120px;float:left;padding:6px 0px 6px 0px ;border:1px solid #FFFFFF; background-color:#EAE8E4; text-align:center;}
+.newsitem-title-2{width:370px;float:left;padding:6px 0px 6px 0px ;border:1px solid #FFFFFF; background-color:#EAE8E4; text-align:center;}
+.newsitem-title-3{float:left;padding:6px 0px 6px 0px ;border:1px solid #FFFFFF; background-color:#F1F1F1; text-align:center;}
+.newsitem-title-3 a{color:#000000;}
+.newsitem-title-2 a{color:#000000;}
+.newsitem-title-2 a:hover{ text-decoration:underline;color:#FF3400;}
+/*管理员登录*/
+#loginimg{width:420px;height:300px;float:left;margin:30px  30px 30px 60px;display:inline;border-radius:8px;}
+#loginimg img{width:420px;height:300px;border-radius:8px;}
+#logindiv{width:400px;height:300px;float:right;margin:30px;display:inline;border-radius:8px;border:1px solid gray;}
+#ltitle{width:400px;padding:10px 0px 10px 0px;text-align:center;font-size:26px; letter-spacing:3px;border-bottom:1px solid gray;}
+.litem{width:400px;text-align:center;margin-top:30px;font-size:14px;}
+.txt{border:1px solid #747B38;border-radius:3px;height:20px;}
+/*预定管理*/
+.txtDish{ width: 200px; border: 1px solid #CCCCCC;}
+.imgDish{width:300px;height:225px;}
+.bookdetail{width:974px;float:left;background-color:#747B38;border:1px solid #FFFFFF;}
+.book-Time{width:230px;float:left;color:#FFFFFF;margin:10px 0px 0px 30px;display:inline;}
+.book-comment{width:900px;float:left;color:#FFFFFF;margin:10px 0px 10px 30px;display:inline;  line-height:25px;}

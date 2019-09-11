@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "修改新闻";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+@model Models.News
+
+<script src="~/ThirdFile/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("UpdateNews", "News", FormMethod.Post))
+{
+    <div class="txtContentdiv">
+        @Html.Hidden("NewsId",@Model.NewsId)@*这个是为了后台修改使用*@
+        <div class="txtItemdiv">
+            新闻标题：@Html.TextBox("NewsTitle", @Model.NewsTitle, new { @class = "txt" })
+            &nbsp;&nbsp;
+            新闻分类：       
+            @Html.DropDownList("CategoryId", (SelectList)ViewBag.dList)
+        </div>
+        <div class="txtItemdiv">
+            新闻内容：
+        </div>
+        <div class="txtItemdiv">
+            @Html.TextArea("NewsContents",@Model.NewsContents)
+            <script type="text/javascript">
+                CKEDITOR.replace("NewsContents")
+            </script>
+        </div>
+        <div class="txtItemdiv">
+            <button class="btncss" id="btnPublish" type="submit">立即修改</button>
+        </div>
+    </div>
+}
+
+
+

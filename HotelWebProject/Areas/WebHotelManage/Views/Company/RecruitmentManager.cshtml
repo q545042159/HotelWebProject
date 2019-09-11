@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "招聘管理";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+
+<div class="itemdiv">
+    <div class="bitem-title">
+        职位名称
+    </div>
+    <div class="bitem-title">
+        职位类型
+    </div>
+    <div class="bitem-title">
+        工作经验
+    </div>
+    <div class="bitem-title">
+        学历要求
+    </div>
+    <div class="bitem-title">
+        招聘人数
+    </div>
+    <div class="bitem-title">
+        工作地点
+    </div>
+    <div class="bitem-title" style="width: 120px;">
+        操作
+    </div>
+
+@if (ViewBag.list != null)
+{
+    foreach (Models.Recruitment item in ViewBag.list)
+    {
+        <div class="bitem">
+            @item.PostName
+        </div>
+            <div class="bitem">
+                @item.PostType
+            </div>
+            <div class="bitem">
+                @item.Experience
+            </div>
+            <div class="bitem">
+                @item.EduBackground
+            </div>
+            <div class="bitem">
+                @item.RequireCount
+            </div>
+            <div class="bitem">
+                @item.PostPlace
+            </div>
+            <div class="bitem" style="width: 120px;">
+                <a href='ModifyRecruitment?postId=@item.PostId'>修改</a>&nbsp;&nbsp;
+                <a href='DeleteRecruitment?postId=@item.PostId' onclick='if(confirm("确定要删除吗?")==false) return false;'>删除</a>&nbsp;&nbsp;
+            </div>
+    }
+}
+</div>
+

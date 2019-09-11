@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta charset="utf-8" />
+    <title> 网站后台管理</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Areas/WebHotelManage/Css/ManageLayout.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li><a href="/WebHotelManage/SysAdmin/AdminMain">首页</a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesPublish">添加菜品</a></li>
+                    <li><a href="/WebHotelManage/Dishes/DishesManager">菜品管理</a></li>
+                    <li><a href="/WebHotelManage/News/NewsPublish">发布新闻</a></li>
+                    <li><a href="/WebHotelManage/News/NewsManager">新闻管理</a></li>
+                    <li><a href="/WebHotelManage/Company/BookManager">预订管理</a></li>
+                    <li><a href="/WebHotelManage/Company/SuggestionManager">投诉管理</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentPublish">发布招聘</a></li>
+                    <li><a href="/WebHotelManage/Company/RecruitmentManager">招聘管理</a></li>
+                    <li><a class="navLast" href="/WebHotelManage/SysAdmin/ExitSys">退出系统</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">
+            @RenderBody()
+        </div>
+
+        <div id="footer">
+            <div id="bq">
+                <a target="_blank" href="/Company/Index">[网站首页]</a>&nbsp;&nbsp;版权所有 Copyright(C)2010-2020
+                好运来酒店&nbsp;&nbsp;&nbsp;[当前用户:@Session["currentAdmin"]]
+            </div>
+        </div>
+    </div>
+</body>
+</html>

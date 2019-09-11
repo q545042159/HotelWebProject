@@ -1,0 +1,99 @@
+﻿.item
+{
+    width: 688px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    display: inline;
+    color: #505050;
+}
+.itemtitle
+{
+    width: 100px;
+    padding: 3px 0px 0px 0px;
+    text-align: right;
+    float: left;
+}
+.itemcontent
+{
+    width: 500px;
+    padding: 3px 0px 0px 0px;
+    float: left;
+}
+.positiondesc
+{
+    width: 630px;
+    float: left;
+    margin: 10px 0px 0px 60px;
+    display: inline;
+    color: #505050;
+    border: 1px solid #505050;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 10px;
+}
+.outdiv
+{
+    width: 668px;
+    float: left;
+    background-color: #F0F0F0;
+    margin: 40px 0px 0px 40px;
+    display: inline;
+    border-bottom: 1px solid #DDDDDD;
+}
+.titlediv
+{
+    width: 668px;
+    float: left;
+    background-color: #F0F0F0;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0px 10px 0px;
+    color: #505050;
+    font-weight: bold;
+}
+.position
+{
+    width: 385px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+.place
+{
+    width: 122px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+.needcount
+{
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+.detail
+{
+    width: 30px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+.itemdiv
+{
+    width: 668px;
+    float: left;
+    background-color: #FFFFFF;
+    padding: 10px 0px 10px 0px;
+    color: #505050;
+}
+.itemdiv a
+{
+    color: #505050;
+    text-decoration: none;
+}
+.itemdiv a:hover
+{
+    color: #FF0000;
+    text-decoration: underline;
+}

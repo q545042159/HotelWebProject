@@ -1,0 +1,51 @@
+﻿@model Models.News
+@{
+    ViewBag.Title = "新闻详细";
+    Layout = "~/Views/Shared/HotelMain.cshtml";
+}
+<link href="~/Styles/News.css" rel="stylesheet" />
+<script type="text/javascript">
+                        function changeFontSize(fontSize) {
+                            //获取要变化的对象
+                            var divContent = document.getElementById("contents");
+                            divContent.style.fontSize = fontSize;
+                        }
+</script>
+@section lefttitle{
+    <div class="lefttitle">
+        栏目导航
+    </div>
+}
+@section leftcontent1{
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">公司介绍</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业文化</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">发展历程</a>
+        </div>
+    </div>
+}
+@section righttitle{
+    您现在位置：中式餐馆酒店>新闻详情
+}
+<div class="newstitle" id="am">
+    @Model.NewsTitle
+</div>
+<div class="newsdesc">
+    发布时间：@Model.PublishTime&nbsp;&nbsp; 文字：【<a href="javascript:void(0)" onclick="changeFontSize('20px')">大</a>】【<a href="javascript:void(0)" onclick="changeFontSize('16px')">中</a>】【<a href="javascript:void(0)" onclick="changeFontSize('12px')">小</a>】
+</div>
+<div class="newscontent" id="contents" style="font-size:14px;">
+   @Html.Raw(Model.NewsContents)
+</div>
+
+

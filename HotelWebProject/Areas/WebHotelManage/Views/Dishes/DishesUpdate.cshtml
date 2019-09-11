@@ -1,0 +1,75 @@
+﻿@model Models.Dishes
+@{
+    ViewBag.Title = "菜品编辑";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+
+<link href="~/Styles/Dishes.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/validation-min.js"></script>
+<script src="~/Scripts/uploadPreview.js"></script>@*这个是图片预览实现需要的插件*@
+<script type="text/javascript">
+    $(function () {//图片预览的尺寸
+        $("#dishesImg").uploadPreview({ Img: "imghead", width: 302, Height: 227 })
+    });
+</script>
+
+@using (Html.BeginForm("UpdateDishes", "Dishes", FormMethod.Post, new { enctype = "multipart/form-data", id = "mainForm", name = "mainForm" }))
+{
+    <div class="txtItemdiv">
+        @Html.Hidden("DishesId", @Model.DishesId) @*这里的隐藏域就是为了修改的时候，后台更新用的*@
+        <div class="itemtitle">
+            菜品名称：
+        </div>
+        <div class="itemcontent">
+            @Html.TextBox("DishesName", @Model.DishesName, new { @class = "txt" })
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            菜品价格：
+        </div>
+        <div class="itemcontent">
+            @Html.TextBox("UnitPrice", (int)@Model.UnitPrice, new { @class = "txt" }) @*(int)这里的强制转换是因为实体属性是Decimal类型，但是验证的是整数，所以，做了强转，如果需要小数，可以修改验证中的正则表达式*@
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            菜品分类：
+        </div>
+        <div class="itemcontent">
+            @Html.DropDownList("CategoryId", (SelectList)ViewBag.slist)
+            <span style="color:red">*</span>
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            菜品图片：
+        </div>
+        <div class="itemcontent">
+            <img id="imghead" src="~/Images/dishes/@Model.DishesImg" width="302" height="227" />  （要求图片必须小于2M）
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle">
+            要上传的图片:
+        </div>
+        <div class="itemcontent">
+            <input type="file" id="dishesImg" name="dishesImg" />
+        </div>
+    </div>
+    <div class="txtItemdiv">
+        <div class="itemtitle" style="margin-left:50px;">
+            <button class="btncss" type="submit">修改菜品</button>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $("#mainForm").valid([
+        { name: "DishesName", isNull: "菜品名称不能为空", onFocus: "请填写菜品名称" },
+         { name: "UnitPrice", type: "number", error: "菜品价格必须为整数", isNull: "请填写菜品价格", onFocus: "请填写正确的菜品价格" }, true
+    ]);
+</script>
+

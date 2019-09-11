@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <title>杭州中式餐馆酒店</title>
+    <link rel="Shortcut Icon" href="~/Styles/Images/clogo.ico" />
+    <link href="~/Styles/MainPage.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/MasterPage.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" type="text/javascript">
+        var NowFrame = 1;
+        var MaxFrame = 2;
+        function scroll1(d1) {
+            if (Number(d1)) {
+                NowFrame = d1;                //设当前显示图片
+            }
+            for (var i = 1; i < (MaxFrame + 1) ; i++) {
+                if (NowFrame == i) {
+                    document.getElementById(NowFrame).style.display = 'block';   //当前显示图片
+                }
+                else {
+                    document.getElementById(i).style.display = 'none';
+                }
+            }
+            {
+                if (NowFrame == MaxFrame)   //设置下一个显示的图片
+                    NowFrame = 1;
+                else
+                    NowFrame++;
+            }
+            theTimer = setTimeout('scroll1()', 3000);   //设置定时器，显示下一张图片
+        }
+    </script>
+</head>
+<body onload="scroll1(1)">
+    <div id="container">
+        <div id="top">
+        </div>
+        <div id="nav">
+            <div id="navlink">
+                <ul>
+                    <li>@Html.ActionLink("网站首页", "Index", "Company")</li>
+                    <li>@Html.ActionLink("公司介绍", "ComDesc", "Company")</li>
+                    <li>@Html.ActionLink("新闻动态", "NewsList", "News")</li>
+                    <li>@Html.ActionLink("美食展示", "DishesShow", "Dishes")</li>
+                    <li>@Html.ActionLink("餐厅环境", "Environment", "Company")</li>
+                    <li>@Html.ActionLink("在线预订", "DishesBook", "Dishes")</li>
+                    <li>@Html.ActionLink("加盟连锁", "JoinUs", "Company")</li>
+                    <li>@Html.ActionLink("投诉建议", "Suggestions", "Company")</li>
+                    <li>@Html.ActionLink("招聘信息", "RecruitmentList", "Company")</li>
+                    <li>@Html.ActionLink("关于我们", "AboutUs", "Company")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="topflashDiv">
+            <div id="topflashbg">
+                <img src="../../Images/topflash1.jpg" id="1" alt="" style="display: none;" />
+                <img src="../../Images/topflash2.jpg" id="2" alt="" style="display: none;" />
+            </div>
+        </div>
+        <div id="content">
+            <div id="leftpage">
+                @RenderSection("lefttitle", required: false)
+                @RenderSection("leftcontent1", required: false)
+                @RenderSection("lefttitle2", required: false)
+                @RenderSection("leftcontent2", required: false)  
+            </div>
+            <div id="rightpage">
+                <div class="righttitle">
+                    @RenderSection("righttitle", required: false)                     
+                </div>
+                <div class="contentDiv">
+                    @RenderBody()
+                </div>               
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footercontent">
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加盟连锁</a></li>
+                    <li><a href="#">投诉建议</a></li>
+                    <li><a href="#">友情链接</a></li>
+                </ul>
+            </div>
+            <div id="bq">
+                版权所有 Copyright(C)2010-2020   喜科堂互联教育
+            </div>
+        </div>
+        <div id="footerbottom">
+        </div>
+    </div>
+</body>
+</html>

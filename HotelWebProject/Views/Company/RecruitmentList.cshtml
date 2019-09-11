@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "招聘列表";
+    Layout = "~/Views/Shared/HotelMain.cshtml";
+}
+<link href="~/Styles/Recruitment.css" rel="stylesheet" />
+
+<div class="contentDiv">
+    <div class="outdiv">
+        <div class="titlediv">
+            <div class="position">
+                招聘职位
+            </div>
+            <div class="place">
+                工作地点
+            </div>
+            <div class="needcount">
+                招聘人数
+            </div>
+            <div class="detail">
+                详情
+            </div>
+        </div>
+        @{
+            List<Models.Recruitment> list = new BLL.RecruitmentManager().GetAllRecruitment();
+           foreach (var item in list)
+            {
+                <div class="itemdiv">
+                    <div class="position">
+                        <a href="/Company/RecruitmentDetail?PostId=@item.PostId" target="_blank">@item.PostName</a>
+                    </div>
+                    <div class="place">
+                        @item.PostPlace
+                    </div>
+                    <div class="needcount">
+                        @item.RequireCount
+                    </div>
+                    <div class="detail">
+                        <a href="/Company/RecruitmentDetail?PostId=@item.PostId" target="_blank">详情</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+@section lefttitle{
+    <div class="lefttitle">
+        栏目导航
+    </div>
+}
+@section leftcontent1{
+    <div class="content1">
+        <div class="conitem">
+            <a href="#">公司介绍</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业文化</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">企业荣誉</a>
+        </div>
+        <div class="conitem">
+            <a href="#">发展历程</a>
+        </div>
+    </div>
+}
+@section lefttitle2{
+    <div class="lefttitle">
+        联系方式
+    </div>
+}
+@section  righttitle{
+    您现在位置：中式餐馆酒店>招聘信息
+}
+
+@section leftcontent2{
+    <div class="content2">
+        <div style="padding-left: 33px; padding-right: 0px; font: 12px/18px simsun; color: #3f3b32;">
+            地&nbsp; 址：杭州市莫山南路888号<br />
+            汽车南站旁<br />
+            电&nbsp; 话：0571-98888888<br />
+            0571-98999999<br />
+            传&nbsp; 真：0571-98777777<br />
+            邮&nbsp; 箱：boss@mail.com
+        </div>
+    </div>
+}

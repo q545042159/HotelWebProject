@@ -1,0 +1,74 @@
+﻿.newstitle
+{
+    width: 665px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    float: left;
+    margin: 40px 0px 0px 40px;
+    display: inline;
+    color: #505050;
+}
+.newsdesc
+{
+    width: 663px;
+    font-size: 12px;
+    text-align: center;
+    float: left;
+    margin: 15px 0px 0px 40px;
+    color: #505050;
+    padding: 8px 0px 8px 0px;
+    background-color: #F7F7F7;
+    border: 1px solid #E8E8E8;
+    display: inline;
+}
+.newsdesc a
+{
+    text-decoration: none;
+    color: #505050;
+}
+.newscontent
+{
+    width: 665px;
+    float: left;
+    margin: 15px 0px 0px 40px;
+    color: #505050;
+    line-height: 20px;
+    text-indent: 2em;
+    display: inline;
+}
+.newsItem
+{
+    width: 675px;
+    height: 20px;
+    float: left;
+    background-image: url(Images/othermaster/line.jpg);
+}
+.newsItem a
+{
+    color: #333333;
+    text-decoration: none;
+}
+.newsItem a:hover
+{
+    color: red;
+    text-decoration: underline;
+}
+.newtitle
+{
+    width: 522px;
+    float: left;
+}
+.newsdate
+{
+    width: 150px;
+    float: left;
+    text-align: right;
+}
+#nlistdiv
+{
+    width: 713px;
+    float: left;
+    padding: 15px 0px 0px 40px;
+    color: #333333;
+}

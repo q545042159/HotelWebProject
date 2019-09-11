@@ -1,0 +1,88 @@
+﻿#leftpage
+{
+    width: 242px;
+    margin-left: 5px;
+    display: inline;
+    float: left;
+}
+.lefttitle
+{
+    width: 212px;
+    float: left;
+    background-image: url(../Images/othermaster/title1.jpg);
+    color: #FFFFFF;
+    padding: 9px 0px 7px 30px;
+}
+#rightpage
+{
+    width: 753px;
+    float: left;
+}
+.righttitle
+{
+    width: 708px;
+    background-image: url(../Images/othermaster/title2.jpg);
+    float: left;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 9px 0px 7px 45px;
+}
+.contentDiv
+{
+    width: 753px;
+    height: 520px;
+    background-color: #FFFFFF;
+    float: left;
+}
+.content1
+{
+    width: 242px;
+    padding: 20px 0px 30px 0px;
+    float: left;
+}
+.content2
+{
+    width: 242px;
+    padding: 20px 0px 30px 0px;
+    float: left;
+}
+.conitem
+{
+    width: 108px;
+    margin-left: 38px;
+    margin-top: 3px;
+    display: inline;
+    float: left;
+    background-image: url(../Images/othermaster/item.png);
+    padding: 5px 0px 7px 50px;
+    color: #FFFFFF;
+}
+.conitem a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.conitem2
+{
+    width: 108px;
+    margin-left: 38px;
+    margin-top: 3px;
+    display: inline;
+    float: left;
+    padding: 2px 0px 0px 0px;
+}
+.conitem2txt
+{
+    border: 1px solid #AA8C1E;
+    height: 20px;
+}
+.btncss
+{
+    border: 1px solid #676D2D;
+    border-radius: 5px;
+    background-color: #676D2D;
+    width: 80px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding:5px;
+}

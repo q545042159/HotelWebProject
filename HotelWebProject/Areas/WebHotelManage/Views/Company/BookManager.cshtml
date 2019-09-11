@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "预订管理";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+
+<div class="itemdiv">
+    <div class="book-title">
+        酒店名称
+    </div>
+    <div class="book-title">
+        消费时间
+    </div>
+    <div class="book-title">
+        消费人数
+    </div>
+    <div class="book-title">
+        包间类型
+    </div>
+    <div class="book-title">
+        客户姓名
+    </div>
+    <div class="book-title">
+        联系电话
+    </div>
+    <div class="book-title" style="width: 152px;">
+        操作
+    </div>
+
+    @*在这里要注意ViewBag.list需要类型转换*@
+    @if (ViewBag.list != null && ((List<Models.DishesBook>)(ViewBag.list)).Count > 0)
+    {
+        foreach (Models.DishesBook item in ViewBag.list)
+        {
+            <div class="book-title">
+                @item.HotelName
+            </div>
+                <div class="book-title">
+                    @item.ConsumeTime
+                </div>
+                <div class="book-title">
+                    @item.ConsumePersons 人
+                </div>
+                <div class="book-title">
+                    @item.RoomType
+                </div>
+                <div class="book-title">
+                    @item.CustomerName
+                </div>
+                <div class="book-title">
+                    @item.CustomerPhone
+                </div>
+                <div class="book-title" style="width: 152px;">
+                    <a href='ModifyBook?statId=1&BookId=@item.BookId'>通过</a>  @*这里的1、-1和2是提前约定好的*@
+                    <a href='ModifyBook?statId=-1&BookId=@item.BookId'>取消</a>
+                    <a href='ModifyBook?statId=2&BookId=@item.BookId' onclick='if(confirm("确定要关闭订单吗?")==false) return false;'>关单</a>
+                </div>
+                <div class="bookdetail">
+                    <div class="book-Time">
+                        预定时间： @item.BookTime
+                    </div>
+                    <div class="book-Time">
+                        电子邮件：@item.CustomerEmail
+                    </div>
+                    <div class="book-Time">
+                        预定状态：@item.OrderStatus  &nbsp;（0：未审核&nbsp;1：审核通过）
+                    </div>
+                    <div class="book-comment">
+                        预定其他要求：@item.Comments
+                    </div>
+                </div>
+        }
+    }
+</div>
+

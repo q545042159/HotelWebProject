@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1C7980FA-9C34-4413-BCEE-EAEB4954ADC7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotelWebProject</RootNamespace>
+    <AssemblyName>HotelWebProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\WebHotelManage\Css\Images\default.png" />
+    <Content Include="Areas\WebHotelManage\Css\Images\loginimg.jpg" />
+    <Content Include="Areas\WebHotelManage\Css\Images\navbg_ht.jpg" />
+    <Content Include="Areas\WebHotelManage\Css\Images\topbg_ht.png" />
+    <Content Include="Areas\WebHotelManage\Css\ManageLayout.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\dishes\100.PNG" />
+    <Content Include="Images\dishes\101.PNG" />
+    <Content Include="Images\dishes\102.PNG" />
+    <Content Include="Images\dishes\103.PNG" />
+    <Content Include="Images\dishes\104.PNG" />
+    <Content Include="Images\dishes\105.PNG" />
+    <Content Include="Images\dishes\106.PNG" />
+    <Content Include="Images\dishes\107.png" />
+    <Content Include="Images\dishes\caipin01.jpg" />
+    <Content Include="Images\dishes\caipin02.jpg" />
+    <Content Include="Images\dishes\caipin03.jpg" />
+    <Content Include="Images\dishes\caipin04.jpg" />
+    <Content Include="Images\dishes\caipin05.jpg" />
+    <Content Include="Images\dishes\caipin06.jpg" />
+    <Content Include="Images\dishes\caipin07.jpg" />
+    <Content Include="Images\dishes\caipin08.jpg" />
+    <Content Include="Images\environment\huanjing01.jpg" />
+    <Content Include="Images\environment\huanjing02.jpg" />
+    <Content Include="Images\environment\huanjing03.jpg" />
+    <Content Include="Images\environment\huanjing04.jpg" />
+    <Content Include="Images\environment\huanjing05.jpg" />
+    <Content Include="Images\environment\huanjing06.jpg" />
+    <Content Include="Images\error.jpg" />
+    <Content Include="Images\huanjing1.jpg" />
+    <Content Include="Images\huanjing2.jpg" />
+    <Content Include="Images\huanjing3.jpg" />
+    <Content Include="Images\huanjing4.jpg" />
+    <Content Include="Images\item.png" />
+    <Content Include="Images\joinus.jpg" />
+    <Content Include="Images\joinus\joinus.jpg" />
+    <Content Include="Images\leftimage1.jpg" />
+    <Content Include="Images\line.jpg" />
+    <Content Include="Images\listt.jpg" />
+    <Content Include="Images\navbg.jpg" />
+    <Content Include="Images\notfound.jpg" />
+    <Content Include="Images\othermaster\company.jpg" />
+    <Content Include="Images\othermaster\item.png" />
+    <Content Include="Images\othermaster\line.jpg" />
+    <Content Include="Images\othermaster\search5.gif" />
+    <Content Include="Images\othermaster\title1.jpg" />
+    <Content Include="Images\othermaster\title2.jpg" />
+    <Content Include="Images\othermaster\title5.jpg" />
+    <Content Include="Images\rec1.jpg" />
+    <Content Include="Images\rec2.jpg" />
+    <Content Include="Images\search5.gif" />
+    <Content Include="Images\title1.jpg" />
+    <Content Include="Images\title2.jpg" />
+    <Content Include="Images\title3.jpg" />
+    <Content Include="Images\title4.jpg" />
+    <Content Include="Images\title5.jpg" />
+    <Content Include="Images\topbg.jpg" />
+    <Content Include="Images\topflash1.jpg" />
+    <Content Include="Images\topflash2.jpg" />
+    <Content Include="Images\zhaopai1.jpg" />
+    <Content Include="Images\zhaopai2.jpg" />
+    <Content Include="Images\zhaopai3.jpg" />
+    <Content Include="Images\zhaopai4.jpg" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Areas\WebHotelManage\Views\web.config" />
+    <Content Include="Areas\WebHotelManage\Views\Shared\ManageLayout.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\SysAdmin\AdminLogin.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\SysAdmin\AdminMain.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\News\NewsPublish.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\News\NewsManager.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\News\NewsUpdate.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Company\BookManager.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Company\RecruitmentManager.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Company\RecruitmentUpdate.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Company\RecruitmentPublish.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Company\SuggestionManager.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Dishes\DishesManager.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Dishes\DishesPublish.cshtml" />
+    <Content Include="Areas\WebHotelManage\Views\Dishes\DishesUpdate.cshtml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\uploadPreview.js" />
+    <Content Include="Scripts\validation-min.js" />
+    <Content Include="Scripts\validation.js" />
+    <Content Include="Styles\Default.css" />
+    <Content Include="Styles\Dishes.css" />
+    <Content Include="Styles\Images\clogo.ico" />
+    <Content Include="Styles\Images\onloading.gif" />
+    <Content Include="Styles\Images\validatorError.png" />
+    <Content Include="Styles\Images\validatorValid.png" />
+    <Content Include="Styles\MainPage.css" />
+    <Content Include="Styles\MasterPage.css" />
+    <Content Include="Styles\News.css" />
+    <Content Include="Styles\Recruitment.css" />
+    <Content Include="ThirdFile\ckeditor\build-config.js" />
+    <Content Include="ThirdFile\ckeditor\ckeditor.js" />
+    <Content Include="ThirdFile\ckeditor\config.js" />
+    <Content Include="ThirdFile\ckeditor\contents.css" />
+    <Content Include="ThirdFile\ckeditor\lang\af.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ar.js" />
+    <Content Include="ThirdFile\ckeditor\lang\bg.js" />
+    <Content Include="ThirdFile\ckeditor\lang\bn.js" />
+    <Content Include="ThirdFile\ckeditor\lang\bs.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ca.js" />
+    <Content Include="ThirdFile\ckeditor\lang\cs.js" />
+    <Content Include="ThirdFile\ckeditor\lang\cy.js" />
+    <Content Include="ThirdFile\ckeditor\lang\da.js" />
+    <Content Include="ThirdFile\ckeditor\lang\de.js" />
+    <Content Include="ThirdFile\ckeditor\lang\el.js" />
+    <Content Include="ThirdFile\ckeditor\lang\en-au.js" />
+    <Content Include="ThirdFile\ckeditor\lang\en-ca.js" />
+    <Content Include="ThirdFile\ckeditor\lang\en-gb.js" />
+    <Content Include="ThirdFile\ckeditor\lang\en.js" />
+    <Content Include="ThirdFile\ckeditor\lang\eo.js" />
+    <Content Include="ThirdFile\ckeditor\lang\es.js" />
+    <Content Include="ThirdFile\ckeditor\lang\et.js" />
+    <Content Include="ThirdFile\ckeditor\lang\eu.js" />
+    <Content Include="ThirdFile\ckeditor\lang\fa.js" />
+    <Content Include="ThirdFile\ckeditor\lang\fi.js" />
+    <Content Include="ThirdFile\ckeditor\lang\fo.js" />
+    <Content Include="ThirdFile\ckeditor\lang\fr-ca.js" />
+    <Content Include="ThirdFile\ckeditor\lang\fr.js" />
+    <Content Include="ThirdFile\ckeditor\lang\gl.js" />
+    <Content Include="ThirdFile\ckeditor\lang\gu.js" />
+    <Content Include="ThirdFile\ckeditor\lang\he.js" />
+    <Content Include="ThirdFile\ckeditor\lang\hi.js" />
+    <Content Include="ThirdFile\ckeditor\lang\hr.js" />
+    <Content Include="ThirdFile\ckeditor\lang\hu.js" />
+    <Content Include="ThirdFile\ckeditor\lang\is.js" />
+    <Content Include="ThirdFile\ckeditor\lang\it.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ja.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ka.js" />
+    <Content Include="ThirdFile\ckeditor\lang\km.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ko.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ku.js" />
+    <Content Include="ThirdFile\ckeditor\lang\lt.js" />
+    <Content Include="ThirdFile\ckeditor\lang\lv.js" />
+    <Content Include="ThirdFile\ckeditor\lang\mk.js" />
+    <Content Include="ThirdFile\ckeditor\lang\mn.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ms.js" />
+    <Content Include="ThirdFile\ckeditor\lang\nb.js" />
+    <Content Include="ThirdFile\ckeditor\lang\nl.js" />
+    <Content Include="ThirdFile\ckeditor\lang\no.js" />
+    <Content Include="ThirdFile\ckeditor\lang\pl.js" />
+    <Content Include="ThirdFile\ckeditor\lang\pt-br.js" />
+    <Content Include="ThirdFile\ckeditor\lang\pt.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ro.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ru.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sk.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sl.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sq.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sr-latn.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sr.js" />
+    <Content Include="ThirdFile\ckeditor\lang\sv.js" />
+    <Content Include="ThirdFile\ckeditor\lang\th.js" />
+    <Content Include="ThirdFile\ckeditor\lang\tr.js" />
+    <Content Include="ThirdFile\ckeditor\lang\ug.js" />
+    <Content Include="ThirdFile\ckeditor\lang\uk.js" />
+    <Content Include="ThirdFile\ckeditor\lang\vi.js" />
+    <Content Include="ThirdFile\ckeditor\lang\zh-cn.js" />
+    <Content Include="ThirdFile\ckeditor\lang\zh.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ThirdFile\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="ThirdFile\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="ThirdFile\ckeditor\plugins\icons.png" />
+    <Content Include="ThirdFile\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="ThirdFile\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="ThirdFile\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="ThirdFile\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ThirdFile\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\dialog_opera.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\icons.png" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\images\close.png" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\images\mini.png" />
+    <Content Include="ThirdFile\ckeditor\styles.js" />
+    <Content Include="ThirdFile\My97DatePicker\calendar.js" />
+    <Content Include="ThirdFile\My97DatePicker\config.js" />
+    <Content Include="ThirdFile\My97DatePicker\lang\en.js" />
+    <Content Include="ThirdFile\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="ThirdFile\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="ThirdFile\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="ThirdFile\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="ThirdFile\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="ThirdFile\My97DatePicker\skin\default\img.gif" />
+    <Content Include="ThirdFile\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="ThirdFile\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="ThirdFile\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="ThirdFile\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="ThirdFile\My97DatePicker\WdatePicker.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\WebHotelManage\Controllers\CompanyController.cs" />
+    <Compile Include="Areas\WebHotelManage\Controllers\DishesController.cs" />
+    <Compile Include="Areas\WebHotelManage\Controllers\NewsController.cs" />
+    <Compile Include="Areas\WebHotelManage\Controllers\SysAdminController.cs" />
+    <Compile Include="Areas\WebHotelManage\WebHotelManageAreaRegistration.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\DishesController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateValidateCode.cs" />
+    <Compile Include="Models\UtilityHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Images\environment\Thumbs.db" />
+    <Content Include="Images\othermaster\Thumbs.db" />
+    <Content Include="ThirdFile\ckeditor\CHANGES.md" />
+    <Content Include="ThirdFile\ckeditor\LICENSE.md" />
+    <Content Include="ThirdFile\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="ThirdFile\ckeditor\plugins\scayt\README.md" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="ThirdFile\ckeditor\plugins\wsc\README.md" />
+    <Content Include="ThirdFile\ckeditor\README.md" />
+    <Content Include="ThirdFile\ckeditor\skins\moono\readme.md" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Shared\HotelMain.cshtml" />
+    <Content Include="Views\Company\ComDesc.cshtml" />
+    <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\News\NewsDetail.cshtml" />
+    <Content Include="Views\Company\AboutUs.cshtml" />
+    <Content Include="Views\Company\Environment.cshtml" />
+    <Content Include="Views\Company\JoinUs.cshtml" />
+    <Content Include="Views\Company\RecruitmentDetail.cshtml" />
+    <Content Include="Views\Company\RecruitmentList.cshtml" />
+    <Content Include="Views\Dishes\DishesShow.cshtml" />
+    <Content Include="Views\Dishes\DishesBook.cshtml" />
+    <Content Include="Views\Company\Suggestions.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\WebHotelManage\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{8d106b78-0c84-4d3e-b7ee-9bbec57d6c40}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{3e313f70-9cd3-424c-8255-640ffc965ae3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28181</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:28181/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

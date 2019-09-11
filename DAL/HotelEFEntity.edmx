@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishesId" />
+          </Key>
+          <Property Name="DishesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DishesName" Type="varchar" MaxLength="100" />
+          <Property Name="UnitPrice" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="DishesBook">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="varchar" MaxLength="50" />
+          <Property Name="ConsumeTime" Type="datetime" />
+          <Property Name="ConsumePersons" Type="int" />
+          <Property Name="RoomType" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerPhone" Type="varchar" MaxLength="100" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="100" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="BookTime" Type="datetime" />
+          <Property Name="OrderStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="DishesCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsTitle" Type="varchar" MaxLength="100" />
+          <Property Name="NewsContents" Type="text" />
+          <Property Name="PublishTime" Type="datetime" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="NewsCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Recruitment">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostType" Type="char" MaxLength="4" />
+          <Property Name="PostPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostDesc" Type="text" />
+          <Property Name="PostRequire" Type="text" />
+          <Property Name="Experience" Type="nvarchar" MaxLength="100" />
+          <Property Name="EduBackground" Type="nvarchar" MaxLength="100" />
+          <Property Name="RequireCount" Type="int" />
+          <Property Name="PublishTime" Type="datetime" />
+          <Property Name="Manager" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="SuggestionId" />
+          </Key>
+          <Property Name="SuggestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsumeDesc" Type="text" />
+          <Property Name="SuggestionDesc" Type="text" />
+          <Property Name="SuggestionTime" Type="datetime" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="SysAdmins">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" Nullable="false" />
+          <Property Name="LoginName" Type="varchar" MaxLength="20" />
+          <Property Name="LoginPwd" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Dishes__Category__1A14E395">
+          <End Role="DishesCategory" Type="Self.DishesCategory" Multiplicity="0..1" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DishesCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__CategoryId__15502E78">
+          <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="0..1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBModelStoreContainer">
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DishesBook" EntityType="Self.DishesBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DishesCategory" EntityType="Self.DishesCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsCategory" EntityType="Self.NewsCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recruitment" EntityType="Self.Recruitment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysAdmins" EntityType="Self.SysAdmins" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Dishes__Category__1A14E395" Association="Self.FK__Dishes__Category__1A14E395">
+            <End Role="DishesCategory" EntitySet="DishesCategory" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__CategoryId__15502E78" Association="Self.FK__News__CategoryId__15502E78">
+            <End Role="NewsCategory" EntitySet="NewsCategory" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishesId" />
+          </Key>
+          <Property Name="DishesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DishesName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="DishesCategory" Relationship="Self.FK__Dishes__Category__1A14E395" FromRole="Dishes" ToRole="DishesCategory" />
+        </EntityType>
+        <EntityType Name="DishesBook">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConsumeTime" Type="DateTime" Precision="3" />
+          <Property Name="ConsumePersons" Type="Int32" />
+          <Property Name="RoomType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BookTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DishesCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK__Dishes__Category__1A14E395" FromRole="DishesCategory" ToRole="Dishes" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NewsContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PublishTime" Type="DateTime" Precision="3" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="NewsCategory" Relationship="Self.FK__News__CategoryId__15502E78" FromRole="News" ToRole="NewsCategory" />
+        </EntityType>
+        <EntityType Name="NewsCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="News" Relationship="Self.FK__News__CategoryId__15502E78" FromRole="NewsCategory" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Recruitment">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostType" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="PostPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PostRequire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EduBackground" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RequireCount" Type="Int32" />
+          <Property Name="PublishTime" Type="DateTime" Precision="3" />
+          <Property Name="Manager" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="SuggestionId" />
+          </Key>
+          <Property Name="SuggestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConsumeDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SuggestionDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SuggestionTime" Type="DateTime" Precision="3" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StatusId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SysAdmins">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" />
+          <Property Name="LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoginPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Dishes__Category__1A14E395">
+          <End Role="DishesCategory" Type="Self.DishesCategory" Multiplicity="0..1" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DishesCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__CategoryId__15502E78">
+          <End Role="NewsCategory" Type="Self.NewsCategory" Multiplicity="0..1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="DishesBook" EntityType="Self.DishesBook" />
+          <EntitySet Name="DishesCategory" EntityType="Self.DishesCategory" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="NewsCategory" EntityType="Self.NewsCategory" />
+          <EntitySet Name="Recruitment" EntityType="Self.Recruitment" />
+          <EntitySet Name="Suggestion" EntityType="Self.Suggestion" />
+          <EntitySet Name="SysAdmins" EntityType="Self.SysAdmins" />
+          <AssociationSet Name="FK__Dishes__Category__1A14E395" Association="Self.FK__Dishes__Category__1A14E395">
+            <End Role="DishesCategory" EntitySet="DishesCategory" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__CategoryId__15502E78" Association="Self.FK__News__CategoryId__15502E78">
+            <End Role="NewsCategory" EntitySet="NewsCategory" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities">
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="HotelDBModel.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="DishesId" ColumnName="DishesId" />
+                <ScalarProperty Name="DishesName" ColumnName="DishesName" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishesBook">
+            <EntityTypeMapping TypeName="HotelDBModel.DishesBook">
+              <MappingFragment StoreEntitySet="DishesBook">
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="ConsumeTime" ColumnName="ConsumeTime" />
+                <ScalarProperty Name="ConsumePersons" ColumnName="ConsumePersons" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="BookTime" ColumnName="BookTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishesCategory">
+            <EntityTypeMapping TypeName="HotelDBModel.DishesCategory">
+              <MappingFragment StoreEntitySet="DishesCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="HotelDBModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+                <ScalarProperty Name="NewsContents" ColumnName="NewsContents" />
+                <ScalarProperty Name="PublishTime" ColumnName="PublishTime" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsCategory">
+            <EntityTypeMapping TypeName="HotelDBModel.NewsCategory">
+              <MappingFragment StoreEntitySet="NewsCategory">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recruitment">
+            <EntityTypeMapping TypeName="HotelDBModel.Recruitment">
+              <MappingFragment StoreEntitySet="Recruitment">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="PostType" ColumnName="PostType" />
+                <ScalarProperty Name="PostPlace" ColumnName="PostPlace" />
+                <ScalarProperty Name="PostDesc" ColumnName="PostDesc" />
+                <ScalarProperty Name="PostRequire" ColumnName="PostRequire" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="EduBackground" ColumnName="EduBackground" />
+                <ScalarProperty Name="RequireCount" ColumnName="RequireCount" />
+                <ScalarProperty Name="PublishTime" ColumnName="PublishTime" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suggestion">
+            <EntityTypeMapping TypeName="HotelDBModel.Suggestion">
+              <MappingFragment StoreEntitySet="Suggestion">
+                <ScalarProperty Name="SuggestionId" ColumnName="SuggestionId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ConsumeDesc" ColumnName="ConsumeDesc" />
+                <ScalarProperty Name="SuggestionDesc" ColumnName="SuggestionDesc" />
+                <ScalarProperty Name="SuggestionTime" ColumnName="SuggestionTime" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysAdmins">
+            <EntityTypeMapping TypeName="HotelDBModel.SysAdmins">
+              <MappingFragment StoreEntitySet="SysAdmins">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

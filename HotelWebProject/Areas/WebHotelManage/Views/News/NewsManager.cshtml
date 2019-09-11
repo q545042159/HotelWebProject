@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "新闻管理";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+<div class="itemdiv">
+    <div class="newsitem-title-1">
+        发布时间
+    </div>
+    <div class="newsitem-title-2">
+        新闻标题
+    </div>
+    <div class="newsitem-title-2">
+        新闻分类
+    </div>
+    <div class="newsitem-title-3" style="width: 110px;">
+        操作
+    </div>
+
+    @foreach (Models.News item in ViewBag.newsList)
+    {
+        <div class="newsitem-title-1">
+            @WebHotel.Models.UtilityHelper.ToShortDate(item.PublishTime)
+        </div>
+        <div class="newsitem-title-2">
+            <a href='/News/NewsDetail?newsId=@item.NewsId' target="_blank">
+                @item.NewsTitle
+            </a>
+        </div>
+                <div class="newsitem-title-2">
+                    @item.NewsCategory.CategoryName
+                </div>
+                <div class="newsitem-title-3" style="width: 110px;">
+                    @*@Html.ActionLink("修改", "ShowNewsDetail",new { newsId=item.NewsId,categoryId=item.CategoryId})*@
+                    @Html.ActionLink("修改", "ShowNewsDetail", new { newsId = item.NewsId })
+                    @Html.ActionLink("删除", "DeleteNews", new { newsId = item.NewsId }, new { onclick = "return confirm('确认要删除吗？')" })
+                </div>
+    }
+
+
+</div>

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "菜品管理";
+    Layout = "~/Areas/WebHotelManage/Views/Shared/ManageLayout.cshtml";
+}
+@model  SelectList
+
+<link href="~/Styles/Dishes.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".delDishes").click(function () {
+            if (!confirm("确定删除吗?")) return;
+            var dishesId = $(this).attr("name");
+            $.post("/WebHotelManage/Dishes/DeleteDishes", { "dishesId": dishesId }, function (data, status) {
+                if (data == "success") {
+                    $("#" + dishesId).remove();                   
+                }
+                else {
+                    alert("删除失败！");
+                }
+            });
+        });
+    });
+</script>
+<form method="post" action="/WebHotelManage/Dishes/QueryDishes">
+    <div id="dishcategory">
+        菜品分类：
+        @Html.DropDownList("CategoryId", (SelectList)Model)      @*(SelectList)Model这里是强类型视图的传递*@
+        &nbsp;<button type="submit">提交查询</button>
+    </div>
+</form>
+<div id="dishlistdiv">
+
+    @foreach (var item in ViewBag.dishesList)
+    {
+        <div class="dishlist-item" id="@item.DishesId">
+            <div class="dishlist-img">
+                <img src="~/Images/dishes/@item.DishesImg" alt="" />
+            </div>
+            <div class="dishlist-txt">
+                菜品名称：@item.DishesName
+            </div>
+            <div class="dishlist-txt">             
+                菜品分类：@item.DishesCategory.CategoryName
+            </div>
+            <div class="dishlist-txt">
+                菜品价格：@item.UnitPrice
+            </div>
+            <div class="dishlist-txt">
+                @Html.ActionLink("修改", "DishesUpdate", "Dishes", new { dishesId = item.DishesId } ,new { @class = "" })             
+                <a href="javascript:void()" name="@item.DishesId" class="delDishes">删除</a>&nbsp;&nbsp;@*删除在这里用的是异步删除，请看上面的js部分*@
+            </div>
+        </div>
+    }
+
+</div>
+

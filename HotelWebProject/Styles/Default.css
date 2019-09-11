@@ -1,0 +1,180 @@
+﻿#leftDiv
+{
+	width: 350px;
+	height: 400px;
+	float: left;
+	background-color: #FFB70C;
+	color: #3F3B32;
+	display: inline;
+}
+#rightDiv
+{
+	width: 650px;
+	height: 400px;
+	float: left;
+	color: #3F3B32;
+	background-color: #FFB70C;
+}
+.lefttitle
+{
+	width: 310px;
+	float: left;
+	margin-left: 8px;
+	margin-bottom:10px;
+	background-image: url(../Images/title1.jpg);
+	color: #FFFFFF;
+	padding: 9px 0px 7px 30px;
+	display: inline;
+}
+#leftImage1
+{
+	width: 105px;
+	height: 115px;
+	float: left;
+	margin: 15px 0px 0px 14px;
+}
+#leftText1
+{
+	width: 205px;
+	height: 113px;
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	padding-left: 12px;
+	line-height: 19px;
+	text-indent: 2em;
+}
+#leftTitle2
+{
+	width: 342px;
+	height: 31px;
+	float: left;
+	margin-left: 8px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	display: inline;
+}
+.newslist
+{
+	width: 304px;
+	height: 25px;
+	margin-left: 30px;
+	display: inline;
+	float: left;
+	background-image: url(../Images/listt.jpg);
+}
+.newstitle
+{
+	width: 208px;
+	float: left;
+	margin: 7px 0px 0px 14px;
+	display: inline;
+}
+.newstitle a
+{
+	text-decoration: none;
+	color: #3F3B32;
+}
+.newstitle a:hover
+{
+	color: #FF0000;
+}
+.newsdate
+{
+	width: 70px;
+	float: left;
+	margin: 7px 0px 0px 12px;
+	display: inline;
+	text-align: right;
+}
+#righttitle1
+{
+	width: 337px;
+	height: 31px;
+	float: left;
+	background-image: url(../Images/title3.jpg);
+	margin-left: 15px;
+	display: inline;
+}
+#righttitle2
+{
+	width: 275px;
+	height: 31px;
+	float: left;
+	background-image: url(../Images/title4.jpg);
+	margin-left: 19px;
+	display: inline;
+}
+#rightrec
+{
+	width: 318px;
+	height: 185px;
+	float: left;
+	margin: 10px 0px 0px 25px;
+	display: inline;
+}
+.recimage
+{
+	width: 111px;
+	float: left;
+	border: 1px solid #FFFFFF;
+	margin-top: 8px;
+	display: inline;
+}
+.rectext
+{
+	width: 195px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	display: inline;
+	line-height: 19px;
+}
+#resinver /*餐馆环境div*/
+{
+	width: 260px;
+	height: 190px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 35px;
+	border: 1px solid #FFFFFF;
+	display: inline;
+}
+#resinver img
+{
+	width: 260px;
+	height: 190px;
+}
+#rightScorll
+{
+	width: 612px;
+	height: 110px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 26px;
+	display: inline;
+}
+.zhaopaidiv
+{
+	width: 118px;
+	float: left;
+	margin-right: 10px;
+	display: inline;
+}
+.zhaopai
+{
+	width: 118px;
+	height: 90px;
+	border: 1px solid #FFFFFF;
+	float: left;
+}
+.zhaopainame
+{
+	width: 118px;
+	margin-top: 5px;
+	text-align: center;
+	float: left;
+	display: inline;
+}
+
+
